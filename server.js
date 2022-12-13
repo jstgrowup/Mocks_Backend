@@ -13,7 +13,7 @@ const MONGOURL = process.env.MONGO_URL;
 app.post("/emi", async (req, res) => {
   let { loanamount, annualinterest, tenure } = req.body;
   let rate = annualinterest / 12 / 100;
-  rete = rate.toFixed(6);
+  rate = rate.toFixed(6);
   let months = tenure;
 
   let EMI =
