@@ -19,14 +19,5 @@ app.post("/post", async (req, res) => {
     res.status(404).send(error.message);
   }
 });
-app.post("/delete", async (req, res) => {
-  const { id } = req.body;
 
-  try {
-    await BookMarkModel.findByIdAndDelete({ _id: id });
-    res.send("successfully deleted");
-  } catch (error) {
-    res.status(404).send(error.message);
-  }
-});
 module.exports = app;
