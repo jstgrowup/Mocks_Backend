@@ -2,10 +2,8 @@ const express = require("express");
 const BookMarkModel = require("../Mongo/BookMarkChema");
 const app = express.Router();
 app.get("/get", async (req, res) => {
-  
-
   try {
-    let data = await BookMarkModel.find().populate(["bookmarks"])
+    let data = await BookMarkModel.find();
     return res.send(data);
   } catch (error) {
     console.log(error);
@@ -13,9 +11,8 @@ app.get("/get", async (req, res) => {
   }
 });
 app.post("/post", async (req, res) => {
-  const { id } = req.body;
   try {
-    let data = await BookMarkModel.create({ ProductID: id });
+    let data = await BookMarkModel.create(req.body);
     return res.send(data);
   } catch (error) {
     console.log(error);
