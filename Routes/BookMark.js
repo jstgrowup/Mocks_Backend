@@ -1,9 +1,11 @@
 const express = require("express");
 const BookMarkModel = require("../Mongo/BookMarkChema");
 const app = express.Router();
-app.post("/", async (req, res) => {
+app.get("/get", async (req, res) => {
+  
+
   try {
-    let data = await BookMarkModel.find().populate(["bookmarks"]);
+    let data = await BookMarkModel.find().populate(["bookmarks"])
     return res.send(data);
   } catch (error) {
     console.log(error);
