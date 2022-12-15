@@ -30,5 +30,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, async () => {
   await connect(MONGOURL);
 
-  console.log("server started");
+  console.log("server started on port 8080");
 });
