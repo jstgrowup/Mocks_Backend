@@ -5,10 +5,9 @@ const { connect, mongoose } = require("mongoose");
 app.use(cors());
 app.use(express.json());
 require("dotenv").config();
-const ProductsRegister = require("./Routes/ProductsAdd");
-app.use("/products", ProductsRegister);
-const Bookmark = require("./Routes/BookMark");
-app.use("/books", Bookmark);
+const JobsRegister = require("./Routes/JobsAdd");
+app.use("/jobs", JobsRegister);
+
 const PORT = process.env.PORT || 8080;
 mongoose.set("strictQuery", false);
 const MONGOURL = process.env.MONGO_URL;
