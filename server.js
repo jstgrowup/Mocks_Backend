@@ -5,8 +5,8 @@ const { connect, mongoose } = require("mongoose");
 app.use(cors());
 app.use(express.json());
 require("dotenv").config();
-const JobsRegister = require("./Routes/JobsAdd");
-app.use("/jobs", JobsRegister);
+const RandomWords = require("./Routes/RandomWords");
+app.use("/random", RandomWords);
 
 const PORT = process.env.PORT || 8080;
 mongoose.set("strictQuery", false);
