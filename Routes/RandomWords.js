@@ -2,9 +2,10 @@ const express = require("express");
 const GameModel = require("../Mongo/GameSchema");
 const app = express.Router();
 const RandomWord = require("random-words");
-app.post("/randomwords", async (req, res) => {
+app.post("/randomwords",  (req, res) => {
   try {
-    const randomWord = await RandomWord({ min: 20, max: 45 }).join(" ");
+    const randomWord =RandomWord({ exactly: 7, join: "" });
+    console.log("randomWord:", randomWord);
     return res.status(200).send(randomWord);
   } catch (err) {
     res.status.send("msg", err);
@@ -33,10 +34,7 @@ app.post("/update", async (req, res) => {
   }
 });
 app.post("/getuser", async (req, res) => {
- 
   const { id } = req.body;
-
- 
 
   try {
     const user = await GameModel.findById({ _id: id });
